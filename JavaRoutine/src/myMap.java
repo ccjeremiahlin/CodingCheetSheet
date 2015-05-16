@@ -1,12 +1,44 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created by Jeremiah on 3/14/15.
  */
 public class myMap {
     public void test(){
+        TreeMap<Integer, String> idName = new TreeMap<>((a,b)->-a.compareTo(b));
+        //add
+        for(int i=0;i<10;i++){
+            int randNumer = new Random().nextInt(10);
+            String oldName = idName.put(randNumer, Character.toString((char) ('a' + randNumer)));
+            if(oldName!=null) System.out.println(oldName + " with id: " + i + " is replaced");
+        }
+        String oldName = idName.put(1, "One");
+        if(oldName!=null) System.out.println(oldName+" with id: "+1+" is replaced");
+
+        //loop
+        dumpMap("After initialized :", idName);
+        //find (key or value) and retrieve
+        for(int i=0;i<20;i+=5){
+            String name = idName.get(i);
+            if(name!=null)System.out.println("Get name of id: "+i+" "+ name);
+        }
+        //remove
+        idName.remove(1);
+        dumpMap("After remove index 1: ", idName);
+        //headMap(to Key), tailMap(from Key)
+        dumpMap("To Key", idName.headMap(5));
+        dumpMap("From Key", idName.tailMap(2));
+        dumpMap("Sub Map", idName.subMap(5,1));
+
+        //firstKey, lastKey
+
+        //KeySet
+        DumpContainer<Set<Integer>> dcKey = new DumpContainer<>();
+        dcKey.dump("Key Sets:", idName.keySet());
+        //Value Collections
+        DumpContainer<Collection<String>> dcValues = new DumpContainer<>();
+        dcValues.dump("Value Sets:", idName.values());
+/*
         Map<Integer, String> theMap = new HashMap<Integer, String>();
         for(int i=0;i<10;i++){
             String prev = theMap.put(i, Integer.toString(i));
@@ -36,5 +68,13 @@ public class myMap {
         TreeMap<Integer, String> treeMap = new TreeMap<>(theMap);
         System.out.println(treeMap.headMap(5).toString());
         System.out.println(treeMap.tailMap(5).toString());
+*/
+    }
+    public void dumpMap(String msg, Map<?,?> map){
+        System.out.println(msg);
+        for(Map.Entry<?,?> entry: map.entrySet()){
+            System.out.print("Key: "+entry.getKey()+" Value: "+entry.getValue()+" ");
+        }
+        System.out.println();
     }
 }
