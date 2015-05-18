@@ -2,8 +2,6 @@
 #include<iostream>
 using namespace std;
 int main(){
-  string s="test string operations";
-  cout<<s<<endl;
   //append
   //insert
   //erase
@@ -11,6 +9,11 @@ int main(){
   //substr
   //copy
   //compare 
+  //find, find_first_of, find_first_not_of, find_last_of, find_last_not_of
+  //
+  //stoi, stol, stoll, stoul, stof, stod, stold, 
+  //
+  //to_string
   return 0;
 }
 

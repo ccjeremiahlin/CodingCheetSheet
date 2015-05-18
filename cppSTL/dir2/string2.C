@@ -29,10 +29,21 @@ int main(){
   cout<<tmp<<endl;
   cout<<boolalpha<<s.compare(tmp)<<endl;
   //find, find_first_of, find_first_not_of, find_last_of, find_last_not_of
+  int pos = s.find("something");
+  int firstPosOfCharinSth = s.find_first_of("something");
+  int findfirstnotofpos = s.find_first_not_of(" ");
+  int findlastof = s.find_last_of("last");
+  int findlastnotof = s.find_last_not_of("lastnot");
   //
   //stoi, stol, stoll, stoul, stof, stod, stold, 
+  int integervaluefromstring = stoi("14");
+  int longvaluefromstring = stol("111111111111111111");
+  int doublefromstringvalue = stold("111111111111.11111111111");
   //
   //to_string
+  string integerstring = to_string(111111111);
+  string doublestring = to_string(11111111111.111111111);
+
   return 0;
 }
 

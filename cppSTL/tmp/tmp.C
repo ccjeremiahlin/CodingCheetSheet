@@ -1,3 +1,35 @@
+#include <deque>
+#include <numeric>
+#include <iostream>
+#include <ctime>
+#include <algorithm>
+using namespace std;
+void dump(deque<int> &dq){
+  for(int a : dq){
+    cout<<a<<" ";
+  }
+  cout<<endl;
+}
+
+int main(){
+  //init and assign values
+  //pop front/back
+  //push front/back
+  //insert 
+  //erase
+  //sort descending
+  //random shuffle
+  //nth_element;
+  //non-modifying sequences operations
+  //all_of, any_of, none_of
+  //for_each
+  //count, count_if
+  //mismatch
+  //equal
+  //find, find_if, find_if_not, find_end, find_first_of
+  //adjacent_find
+  //search, search_n
+
 //modifying sequences operations
   //copy, copy_if, copy_n, copy_backward
   //move, move_backward, 
@@ -42,4 +74,4 @@
   // inner_product
   // adjacent_difference
   // partial_sum
-
+}
