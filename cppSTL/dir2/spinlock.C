@@ -23,7 +23,7 @@ class ThreadCounter{
   int m_count;
   Semaphore m_count_lock;
   Semaphore m_print_lock;
-  void count_up(){
+  void count_up(int a){
     for(m_count=0;m_count<N;m_count++){
       if(m_count%PRINTINTERVAL==0){
         m_print_lock.put();
@@ -48,7 +48,7 @@ class ThreadCounter{
   ThreadCounter():m_done(false), m_count(0){}
   void run(){
     //run thread countup
-    auto countThread = thread(&ThreadCounter::count_up, this);
+    auto countThread = thread(&ThreadCounter::count_up, this, 1);
     //run thread print
     auto printThread = thread(&ThreadCounter::print, this);
     //join both thread

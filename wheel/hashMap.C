@@ -39,7 +39,7 @@ pair<bool, string &> HashMap::get(const string & key){
 
 void HashMap::insert(const string &key, const string &value){
   //full condition
-  if(_bucketSize==_capacity){
+  while(_bucketSize==_capacity){
     size_t _newcapacity = _capacity;
     while(_newcapacity<=_size)_newcapacity<<=1;
     size_t _newBucketSize=0;
