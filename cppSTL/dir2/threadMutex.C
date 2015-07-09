@@ -48,7 +48,7 @@ int main(){
   //push thread to pool (and run)
   vector<thread> thpool;
   int count=0;
-  generate_n(back_inserter(thpool), parts, [&](){ return thread(work_for_thread, count++);});
+  generate_n(back_inserter(thpool), parts, [&](){return thread(work_for_thread, count++);});
   //join treads
   for_each(thpool.begin(), thpool.end(), [](thread &th){th.join();});
   cout<<"End"<<endl;
