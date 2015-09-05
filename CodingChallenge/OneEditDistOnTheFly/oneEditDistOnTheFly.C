@@ -43,12 +43,16 @@ bool isOneOrLessEditDistance(FileDescriptor &a, FileDescriptor &b){
 
   if(a.hasNext()){
     int aCur = a.next(); 
-    dp[0][1] += (bPrev.empty() || bPrev[0]!=aCur)?1:0;
+    if((bPrev.empty() || bPrev[0]!=aCur)){
+      dp[0][1] = min(dp[0][1], dp[1][1]) + 1 ;
+    }
     return dp[0][1]<=1 && !a.hasNext();
   }
   if(b.hasNext()){
     int bCur = b.next(); 
-    dp[1][0] += (aPrev.empty() || aPrev[0]!=bCur)?1:0;
+    if(aPrev.empty() || aPrev[0]!=bCur){
+      dp[1][0] = min(dp[1][0], dp[1][1]) + 1 ;
+    }
     return dp[1][0]<=1 && !b.hasNext();
   }
   return dp[1][1]<=1;
