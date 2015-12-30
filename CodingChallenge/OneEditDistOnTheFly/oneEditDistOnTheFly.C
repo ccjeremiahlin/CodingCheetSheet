@@ -90,4 +90,9 @@ int main(){
   
   cout<<boolalpha<<isOneOrLessEditDistance(K, L)<<endl;
 
+  FileDescriptor M(vector<int>({1, 1, 3}));
+  FileDescriptor N(vector<int>({1, 2, 3, 3}));
+  
+  cout<<boolalpha<<isOneOrLessEditDistance(M, N)<<endl;
+
 }
