@@ -32,11 +32,20 @@ class VU
     VU.new(@volume.succ)
   end
 end
+puts
+puts (1..10)    === 5  
+puts (1..10)    === 15 
+puts (1..10)    === 3.14159 
+puts ('a'..'j') === 'c'  # true
+puts ('a'..'j') === 'z'  # false
 
-(1..10)    === 5  
-(1..10)    === 15 
-(1..10)    === 3.14159 
-('a'..'j') === 'c'  # true
-('a'..'j') === 'z'  # false
+r = 0...100
+puts r.member? 50
+puts r.include? 100
+puts r.include? 99.9
+puts r.cover? 99
 
-
+triples = "AAA"..."ZZZ"
+puts "include ABCD " + (triples.include? "ABCD").to_s
+puts triples.member? "ABCD"
+puts triples.cover? "ABCD"

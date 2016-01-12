@@ -25,6 +25,34 @@ puts "after b[2, 2] = 'cat' : " + b.to_s
 b[2, 0] = 'dog'
 puts "after b[2, 0] = 'dog' : " + b.to_s
 
+
+#
+# 1.2 array operator
+#
+
+a = [1,2,3] + [4, 5]
+puts "[1,2,3] + [4,5]"
+printf a.to_s + "\n"
+
+b = [2,3,4]
+c = a-b
+puts "[1,2,3,4,5] - [2,3,4]"
+printf c.to_s + "\n"
+
+a=[]
+a << 1 << 2 << 3 << [4,5,6]
+printf a.to_s + "\n"
+
+a=[0] * 8 
+printf a.to_s + "\n"
+
+a = [1,1,2,2,3,3,4]
+b = [5,5,4,4,3,3,2]
+puts (a | b).to_s + " duplicated removed \n"
+puts (b | a).to_s + " duplicated removed \n"
+puts (a & b).to_s + " duplicated removed \n"
+puts (b & a).to_s + " duplicated removed \n"
+
 #
 # 2 Hashes
 #

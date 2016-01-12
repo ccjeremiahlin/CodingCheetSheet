@@ -1,4 +1,4 @@
-#!/usr/sbin/ruby
+#!/usr/bin/ruby
 
 class Song
   @@plays=0
@@ -99,3 +99,75 @@ song1 = Song.new("Bycilops", "Fleck", 260)
 puts SongList.isTooLong(song1)
 song2 = Song.new("The Calling", "Santana", 468)
 puts SongList.isTooLong(song2)
+
+#
+# 6. Object Methods
+#
+
+o = "some string"
+puts o.class.to_s
+puts o.instance_of? String
+puts o.is_a? Object
+puts Object === o
+
+#
+# 7. Equality
+#     .equal?  is used to test whether two values refer to exactly the same object.
+
+a = "Ruby"
+b = c = "Ruby"
+puts a.equal?(b)
+puts b.equal?(c)
+
+# 
+# 7.1 == operator
+#
+# Most classes redefine "==" operator for testing the value equality.
+
+# 
+# 8. Object Order
+#
+# classes define an ordering by implementing the <=> operator.
+# which returns -1, 0, 1
+# 
+# Comparable mixin module defining: <, <=, ==, >=, >, and between?()
+
+#
+# 9. Conversion
+#
+# 9.1 String, Array, Hash, Regexp, and IO all defines a class method named try_convert
+#
+# ex: Array.try_convert(o) returns o.to_ary if o defines that method; otherwise it returns nil.
+#
+# 9.2 coerse
+#
+
+#
+# 10. Copying object
+# clone and dup return a shallow copy of the object on which they are invoked.
+# unless the object being copied defines an initialize_copy() method.
+# classes can redefine clone and dup to produce any kind of copy desired.
+#
+# 10.1 Marshal
+
+def deepcopy(o)
+  Marshal.load(Marshal.dump(0))
+end
+
+#
+# 11. Frozen objects
+#
+
+s = "ice"
+s.freeze
+puts s.frozen?
+
+#
+# 12. Tainting Object
+# Marking unsafe objects
+#
+s = "untrusted"
+s.taint
+puts s.tainted?
+s.upcase.tainted?
+s[3,4].tainted?
