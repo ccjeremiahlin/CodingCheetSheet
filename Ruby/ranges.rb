@@ -49,3 +49,14 @@ triples = "AAA"..."ZZZ"
 puts "include ABCD " + (triples.include? "ABCD").to_s
 puts triples.member? "ABCD"
 puts triples.cover? "ABCD"
+
+
+#
+# flip-flop
+#
+(1..10).each {|x| print x if x==3..x==5 }
+# Prints "3". Flips and flops back when x==3
+ (1..10).each {|x| print x if x==3..x>=3 }
+# # Prints "34". Flips when x == 3 and flops when x==4
+ (1..10).each {|x| print x if x==3...x>=3 } # Prints "34"
+
