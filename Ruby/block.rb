@@ -14,3 +14,6 @@ five {|head, *body, tail| p head, body, tail}
 
 def hashiter; yield :a=>1, :b=>2; end
 hashiter {|hash| p hash[:a]}
+
+printer = lambda {|&b| puts b.call}
+printer.call {"hi"}
