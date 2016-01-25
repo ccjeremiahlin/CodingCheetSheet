@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <numeric>
 #include <future>
-using namespace std; 
+using namespace std;
 template <typename RAIter>
 int parallel_sum(RAIter beg, RAIter end)
 {
@@ -16,14 +16,12 @@ int parallel_sum(RAIter beg, RAIter end)
     auto mid = beg+len/2;
     //fire async execution
     future<int> handle = async(launch::async, parallel_sum<RAIter>, mid, end);
-    
     int firsthalfSum = parallel_sum(beg, mid);
-    
     //return result
-    
     return firsthalfSum+handle.get();
+
 }
- 
+
 int main()
 {
     std::vector<int> v(10000, 2);
